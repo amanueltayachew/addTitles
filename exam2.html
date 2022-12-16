@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>JS Exam</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <style>
+      body {
+        font-size: 15px;
+      }
+      .container {
+        width: 350px;
+        border: 1ps solid grey;
+        margin: 10px auto;
+      }
+      table {
+        width: 300px;
+      }
+      td {
+        text-align: center;
+      }
+      .circle {
+        border: 0px solid red;
+        text-align: center;
+        background-color: rgb(175, 167, 167);
+        padding: 20px;
+        height: 120px;
+      }
+      .icon {
+        border: 1px solid rgb(218, 214, 214);
+        background-color: rgb(218, 214, 214);
+        color: white;
+        padding: 5px;
+        font-size: 35px;
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+        text-align: center;
+      }
+      .title {
+        border: 0px solid red;
+        padding: 5px;
+        width: 60px;
+        text-align: center;
+        margin-top: -10px;
+        font-size: 12px;
+      }
+      .newTask {
+        width: 300px;
+        padding: 5px;
+        margin: 5px;
+      }
+    </style>
+    <script>
+      let counter = 6;
+      function turnOn(iconId, titleId) {
+        let icon = document.getElementById(iconId);
+        let title = document.getElementById(titleId);
+        icon.style.color = "black";
+        icon.style.backgroundColor = "blue";
+        icon.style.borderColor = "blue";
+        title.style.color = "blue";
+      }
+      function addNewTask() {
+        counter++;
+        let container = document.getElementsByClassName("container");
+        let newDiv = document.createElement("div");
+        let h61 = document.createElement("h6");
+        let h62 = document.createElement("h6");
+        newDiv.setAttribute("class", "circle");
+        newDiv.style.width = "100px";
+        newDiv.style.float = "left";
+        newDiv.style.margin = "1px";
+        newDiv.appendChild(h61);
+        newDiv.appendChild(h62);
+        let iconName = "icon" + counter;
+        let titleName = "title" + counter;
+        h61.innerHTML = document.getElementById("newIcon").value;
+        h61.setAttribute("class", "icon");
+        h61.setAttribute("id", iconName);
+        h61.setAttribute(
+          "onClick",
+          "turnOn('" + iconName + "','" + titleName + "')"
+        );
+        h62.innerHTML = document.getElementById("newTitle").value;
+        h62.setAttribute("class", "title");
+        h62.setAttribute("id", titleName);
+        container[0].appendChild(newDiv);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container" style="border: 0px solid blue">
+      <h5>Add new task</h5>
+      <table>
+        <tr>
+          <td>
+            <input
+              type="text"
+              class="newTask"
+              id="newTitle"
+              placeholder="Enter the title"
+            />
+            <br />
+            <input
+              type="text"
+              class="newTask"
+              id="newIcon"
+              placeholder="Enter the icon"
+            />
+            <br />
+            <input
+              type="button"
+              class="newTask"
+              id="newButton"
+              onclick="addNewTask();"
+              value="Add"
+            />
+          </td>
+        </tr>
+      </table>
+      <br />
+      <h3 style="text-align: center">Mobile Taskbar</h3>
+      <table>
+        <tr>
+          <td>
+            <div class="circle">
+              <h6 class="icon" id="icon1" onclick="turnOn('icon1','title1')">
+                &#9729;
+              </h6>
+              <h6 class="title" id="title1">Wi-Fi</h6>
+            </div>
+          </td>
+          <td>
+            <div class="circle">
+              <h6 class="icon" id="icon2" onclick="turnOn('icon2','title2')">
+                &#9788;
+              </h6>
+              <h6 class="title" id="title2">Brightness</h6>
+            </div>
+          </td>
+          <td>
+            <div class="circle">
+              <h6 class="icon" id="icon3" onclick="turnOn('icon3','title3')">
+                &#9990;
+              </h6>
+              <h6 class="title" id="title3">Start Call</h6>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="circle">
+              <h6 class="icon" id="icon4" onclick="turnOn('icon4','title4')">
+                &#9789;
+              </h6>
+              <h6 class="title" id="title4">Nightmode</h6>
+            </div>
+          </td>
+          <td>
+            <div class="circle">
+              <h6 class="icon" id="icon5" onclick="turnOn('icon5','title5')">
+                &#9737;
+              </h6>
+              <h6 class="title" id="title5">Hotspot</h6>
+            </div>
+          </td>
+          <td>
+            <div class="circle">
+              <h6 class="icon" id="icon6" onclick="turnOn('icon6','title6')">
+                &#9834;
+              </h6>
+              <h6 class="title" id="title6">Music</h6>
+            </div>
+          </td>
+
+          <!-- <td style="width: 350px"></td> -->
+          <!-- 
+            &#9789; night mode
+            &#9730; Umbrela
+            &#9728; Brigh
+            &#9732; Light
+            &#9738; headphone
+            &#9737; target
+            &#9743; phone
+            &#9834; music nota
+            &#9992; Airplane
+            
+          
+          -->
+        </tr>
+      </table>
+	  <!-- <table style='width:100px;'>
+		<tr>
+			<td style='font-size:20px;border-right:1px solid black;padding:5px;'>&#9789;</td>
+			<td>&<p1>#9789;</p1></td>
+		</tr>
+		<tr>
+			<td style='font-size:20px;border-right:1px solid black;padding:5px;'>&#9730;</td>
+			<td>&<p1>#9730;</p1></td>
+		</tr>
+		<tr>
+			<td style='font-size:20px;border-right:1px solid black;padding:5px;'>&#9728;</td>
+			<td>&<p1>#9728;</p1></td>
+		</tr>
+		<tr>
+			<td style='font-size:20px;border-right:1px solid black;padding:5px;'>&#9732;</td>
+			<td>&<p1>#9732;</p1></td>
+		</tr>
+		<tr>
+			<td style='font-size:20px;border-right:1px solid black;padding:5px;'>&#9738;</td>
+			<td>&<p1>#9738;</p1></td>
+		</tr>
+		<tr>
+			<td style='font-size:20px;border-right:1px solid black;padding:5px;'>&#9737;</td>
+			<td>&<p1>#9737;</p1></td>
+		</tr>
+		<tr>
+			<td style='font-size:20px;border-right:1px solid black;padding:5px;'>&#9743;</td>
+			<td>&<p1>#9743;</p1></td>
+		</tr>
+		<tr>
+			<td style='font-size:20px;border-right:1px solid black;padding:5px;'>&#9834;</td>
+			<td>&<p1>#9834;</p1></td>
+		</tr>
+		<tr>
+			<td style='font-size:20px;border-right:1px solid black;padding:5px;'>&#9992;</td>
+			<td>&<p1>#9992;</p1></td>
+		</tr>
+		<tr>
+			<td style='font-size:20px;border-right:1px solid black;padding:5px;'>&#9729;</td>
+			<td>&<p1>#9729;</p1></td>
+		</tr>
+		
+		<tr>
+			<td style='font-size:20px;border-right:1px solid black;padding:5px;'>&#9990;</td>
+			<td>&<p1>#9990;</p1></td>
+		</tr>
+		<tr>
+			<td style='font-size:20px;border-right:1px solid black;padding:5px;'>&#9788;</td>
+			<td>&<p1>#9788;</p1></td>
+		</tr>
+		
+	  </table> -->
+    </div>
+  </body>
+</html>
